@@ -15,7 +15,7 @@
         </ListView>
     </left>
     <center>
-        <VBox style="-fx-background-color: skin">
+        <VBox style="-fx-background-color: red">
             <TextArea fx:id="itemLongDesc" VBox.vgrow="ALWAYS"/>
             <HBox>
                 <Label text="Due: ">

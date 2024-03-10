@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6cd11351-62ee-4df8-a69f-04efe5ded092" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/iratherfear/todo/todoapp/datamodel/TodoData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoListItem.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TodoListItem.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/iratherfear/todo/todoapp/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iratherfear/todo/todoapp/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/iratherfear/todo/todoapp/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iratherfear/todo/todoapp/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/iratherfear/todo/todoapp/datamodel/TodoData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iratherfear/todo/todoapp/datamodel/TodoData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/iratherfear/todo/todoapp/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/iratherfear/todo/todoapp/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

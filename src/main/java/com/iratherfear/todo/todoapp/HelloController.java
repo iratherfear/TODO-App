@@ -24,18 +24,6 @@ public class HelloController {
     @FXML
     private Label itemDeadlineLabel;
     public void initialize() {
-        TodoItem todoItem1 = new TodoItem("Learn Java", "Complete the Java basic, API, Spring", LocalDate.of(2024, Month.FEBRUARY, 23));
-        TodoItem todoItem2 = new TodoItem("Learn Python", "Data sci, pandas, ML", LocalDate.of(2024, Month.MARCH, 1));
-        TodoItem todoItem3 = new TodoItem("Learn DSA", "Basic algo, adv data structure", LocalDate.of(2024, Month.MARCH, 13));
-        TodoItem todoItem4 = new TodoItem("Learn System design", "Desing basic e-com website", LocalDate.of(2024, Month.APRIL, 19));
-
-        todoItems = new ArrayList<TodoItem>();
-        todoItems.add(todoItem1);
-        todoItems.add(todoItem2);
-        todoItems.add(todoItem3);
-        todoItems.add(todoItem4);
-
-        TodoData.getInstance().setTodoItems(todoItems);
 
         todoListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TodoItem>() {
             @Override
@@ -49,8 +37,7 @@ public class HelloController {
             }
         });
 
-//        todoListView.getItems().setAll(TodoData.getInstance().getTodoItems());
-        todoListView.getItems().setAll(todoItems);
+        todoListView.getItems().setAll(TodoData.getInstance().getTodoItems());
         todoListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         todoListView.getSelectionModel().selectFirst();
 

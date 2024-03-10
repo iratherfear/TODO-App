@@ -31,10 +31,6 @@ public class TodoData {
         return todoItems;
     }
 
-    public void setTodoItems(List<TodoItem> todoItems) {
-        this.todoItems = todoItems;
-    }
-
     public void loadTodoItems() throws IOException {
         todoItems = FXCollections.observableArrayList();
         Path path = Paths.get(filename);
@@ -47,9 +43,9 @@ public class TodoData {
                 String shortDesc = itemPieces[0];
                 String longDesc = itemPieces[1];
                 String dateString = itemPieces[2];
-
                 LocalDate date = LocalDate.parse(dateString, formatter);
                 TodoItem todoItem = new TodoItem(shortDesc, longDesc, date);
+                todoItems.add(todoItem);
             }
         } finally {
              if(br != null) {
