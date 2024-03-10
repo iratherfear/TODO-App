@@ -1,0 +1,4 @@
+Learn Java	Complete the Java basic, API, Spring	23-02-2024
+Learn Python	Data sci, pandas, ML	01-03-2024
+Learn DSA	Basic algo, adv data structure	13-03-2024
+Learn System design	Desing basic e-com website	19-04-2024

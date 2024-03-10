@@ -1,5 +1,6 @@
 package com.iratherfear.todo.todoapp;
 
+import com.iratherfear.todo.todoapp.datamodel.TodoData;
 import com.iratherfear.todo.todoapp.datamodel.TodoItem;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -11,6 +12,7 @@ import javafx.scene.control.TextArea;
 
 import java.time.LocalDate;
 import java.time.Month;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class HelloController {
@@ -33,17 +35,21 @@ public class HelloController {
         todoItems.add(todoItem3);
         todoItems.add(todoItem4);
 
+        TodoData.getInstance().setTodoItems(todoItems);
+
         todoListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TodoItem>() {
             @Override
             public void changed(ObservableValue<? extends TodoItem> observableValue, TodoItem oldValue, TodoItem newValue) {
                 if(newValue != null) {
                     TodoItem todoItem = todoListView.getSelectionModel().getSelectedItem();
                     itemLongDesc.setText(todoItem.getLongDesc());
-                    itemDeadlineLabel.setText(todoItem.getDeadline().toString());
+                    DateTimeFormatter df = DateTimeFormatter.ofPattern("MMMM d, yyyy");
+                    itemDeadlineLabel.setText(df.format(todoItem.getDeadline()));
                 }
             }
         });
 
+//        todoListView.getItems().setAll(TodoData.getInstance().getTodoItems());
         todoListView.getItems().setAll(todoItems);
         todoListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         todoListView.getSelectionModel().selectFirst();
