@@ -7,7 +7,10 @@ import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
+import javafx.scene.control.skin.ListCellSkin;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
+import javafx.util.Callback;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -39,9 +42,31 @@ public class HelloController {
             }
         });
 
-        todoListView.getItems().setAll(TodoData.getInstance().getTodoItems());
+        todoListView.setItems(TodoData.getInstance().getTodoItems());
         todoListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         todoListView.getSelectionModel().selectFirst();
+        todoListView.setCellFactory(new Callback<ListView<TodoItem>, ListCell<TodoItem>>() {
+            @Override
+            public ListCell<TodoItem> call(ListView<TodoItem> todoItemListView) {
+                ListCell<TodoItem> cell = new ListCell<>() {
+                    @Override
+                    protected void updateItem(TodoItem todoItem, boolean b) {
+                        super.updateItem(todoItem, b);
+                        if(b) {
+                            setText(null);
+                        } else {
+                            setText(todoItem.getShortDesc());
+                            if(todoItem.getDeadline().isBefore(LocalDate.now().plusDays(1))) {
+                                setTextFill(Color.RED);
+                            } else if(todoItem.getDeadline().equals(LocalDate.now().plusDays(1))) {
+                                setTextFill(Color.YELLOW);
+                            }
+                        }
+                    }
+                };
+                return cell;
+            }
+        });
     }
 
     @FXML
@@ -69,11 +94,7 @@ public class HelloController {
         if(result.isPresent() && result.get() == ButtonType.OK) {
             DialogController controller = fxmlLoader.getController();
             TodoItem todoItem = controller.processResult();
-            todoListView.getItems().setAll(TodoData.getInstance().getTodoItems());
             todoListView.getSelectionModel().select(todoItem);
-            System.out.println("OK presssed");
-        } else {
-            System.out.println("Close was pressed");
         }
     }
 }

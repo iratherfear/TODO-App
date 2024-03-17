@@ -17,7 +17,7 @@
             <Label text="Label" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
             <TextField fx:id="shortDescField" GridPane.rowIndex="0" GridPane.columnIndex="1" />
             <Label text="Description" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-            <TextArea fx:id="longDescField" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+            <TextArea fx:id="longDescField" GridPane.rowIndex="1" GridPane.columnIndex="1" wrapText="true"/>
             <DatePicker fx:id="deadlineField" GridPane.rowIndex="2" GridPane.columnIndex="1" />
         </GridPane>
     </content>
